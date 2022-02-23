@@ -1,0 +1,897 @@
+@charset "UTF-8";
+/* --------------------------------------------------
+   Template by espace（https://espace.monbalcon.net/）
+   Copyright: 2020 espace.
+
+   利用規約を遵守の上、ご利用ください。
+   二次配布、販売は禁止しています。
+   --------------------------------------------------*/
+
+
+/* ----- ▼ リセット　ここから（基本的には触らない方が良い部分） ▼ ----- */
+html {
+  font-size: 62.5%;
+}
+
+:focus {
+  outline: none;
+}
+
+main {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+a, a::after, a::before, button, input, textarea, select {
+  transition: all 0.3s;
+}
+
+a img, button img {
+  transition-duration: .35s;
+}
+
+a:hover img, button:hover img {
+  opacity: 0.5;
+}
+
+button {
+  outline: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  cursor: hand;
+}
+
+input, textarea {
+  box-shadow: none;
+  -webkit-appearance: none;
+}
+
+select {
+  appearance: button;
+}
+
+p, dl, ul, form {
+  margin: 0 0 15px;
+  word-wrap: break-word;
+}
+
+p:last-child, dl:last-child, ul:last-child, form:last-child {
+  margin-bottom: 0;
+}
+
+img {
+  vertical-align: middle;
+}
+
+@media only screen and (max-width: 720px) {
+  p, form {
+    margin: 0 0 17px;
+  }
+  p:last-child, form:last-child {
+    margin-bottom: 0;
+  }
+}
+/* ----- ▲ リセット　ここまで（基本的には触らない方が良い部分） ▲ ----- */
+
+
+/* ----- ▼ レイアウト　ここから ▼ ----- */
+/* 基本 */
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+}
+
+body, button, input, textarea, select {
+  font: 500 1.6rem/calc(1.6rem + 1.05rem) "Yu Gothic", Meiryo, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", sans-serif;
+  color: #555;
+}
+
+footer, main, div {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* リンク */
+a {
+  color: #6981ff;
+}
+
+a:hover {
+  color: #e0e5ff;
+}
+
+a.image, a.image:hover, a.image-border, a.image-border:hover {
+  border-bottom: 0;
+}
+
+a.image-border img {
+  padding: 5px;
+  border: 1px solid #6981ff;
+  border-radius: 0.25rem;
+}
+
+a.image-border:hover img {
+  border: 1px solid #e0e5ff;
+}
+
+/* ヘッダー, フッターエリア */
+header, footer {
+  padding: 10px 30px;
+}
+
+header nav ul, footer nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+header {
+  position: sticky;
+  position: -webkit-sticky;
+  top: calc(-92px - 10px);
+  background: #fff;
+  text-align: center;
+  z-index: 1000;
+}
+
+/* メニュー */
+.menu {
+  margin-top: 10px;
+  z-index: 1500;
+}
+
+.menu li {
+  display: inline-block;
+  margin-right: 2px;
+}
+
+.menu li:last-of-type {
+  margin-right: auto;
+}
+
+.menu a {
+  display: inline-block;
+  position: relative;
+  width: 120px;
+  background: #fff;
+  text-align: center;
+  color: #ccc;
+  font-size: 80%;
+}
+
+.menu a::after, .menu a::before {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 1px;
+  background: #6981ff;
+}
+
+.menu a::after {
+  bottom: 0;
+  left: 0;
+}
+
+.menu a::before {
+  top: 0;
+  right: 0;
+}
+
+.menu a:hover {
+  color: #6981ff;
+}
+
+.menu a:hover::after, .menu a:hover::before {
+  width: 100%;
+}
+
+/* 固定ナビゲーション */
+#pageTopNav,
+#pageBottomNav {
+  position: fixed;
+  right: 0;
+  line-height: 25px;
+}
+
+#pageTopNav li,
+#pageBottomNav li {
+  margin-bottom: 5px;
+}
+
+#pageTopNav li .material-icons,
+#pageBottomNav li .material-icons {
+  font-family: "Material Icons";
+  font-size: 25px;
+  line-height: 45px;
+}
+
+#pageTopNav li:last-child,
+#pageBottomNav li:last-child {
+  margin-bottom: 0;
+}
+
+#pageTopNav li.menu-btn,
+#pageBottomNav li.menu-btn {
+  display: none;
+}
+
+#pageTopNav li.menu-btn a::before,
+#pageTopNav li.menu-btn button::before, #pageTopNav li.pagetop a::before,
+#pageTopNav li.pagetop button::before, #pageTopNav li.prev a::before,
+#pageTopNav li.prev button::before, #pageTopNav li.next a::before,
+#pageTopNav li.next button::before, #pageTopNav li.toc a::before,
+#pageTopNav li.toc button::before, #pageTopNav li.home a::before,
+#pageTopNav li.home button::before,
+#pageBottomNav li.menu-btn a::before,
+#pageBottomNav li.menu-btn button::before,
+#pageBottomNav li.pagetop a::before,
+#pageBottomNav li.pagetop button::before,
+#pageBottomNav li.prev a::before,
+#pageBottomNav li.prev button::before,
+#pageBottomNav li.next a::before,
+#pageBottomNav li.next button::before,
+#pageBottomNav li.toc a::before,
+#pageBottomNav li.toc button::before,
+#pageBottomNav li.home a::before,
+#pageBottomNav li.home button::before {
+  font-family: "Material Icons";
+  font-size: 25px;
+  line-height: 45px;
+}
+
+#pageTopNav li.menu-btn a::before, #pageTopNav li.menu-btn button::before,
+#pageBottomNav li.menu-btn a::before,
+#pageBottomNav li.menu-btn button::before {
+  content: "\e5d2";
+}
+
+#pageTopNav li.pagetop a::before, #pageTopNav li.pagetop button::before,
+#pageBottomNav li.pagetop a::before,
+#pageBottomNav li.pagetop button::before {
+  content: "\e316";
+}
+
+#pageTopNav li.prev a::before, #pageTopNav li.prev button::before,
+#pageBottomNav li.prev a::before,
+#pageBottomNav li.prev button::before {
+  content: "\e314";
+}
+
+#pageTopNav li.next a::before, #pageTopNav li.next button::before,
+#pageBottomNav li.next a::before,
+#pageBottomNav li.next button::before {
+  content: "\e315";
+}
+
+#pageTopNav li.toc a::before, #pageTopNav li.toc button::before,
+#pageBottomNav li.toc a::before,
+#pageBottomNav li.toc button::before {
+  content: "\e8de";
+}
+
+#pageTopNav li.home a::before, #pageTopNav li.home button::before,
+#pageBottomNav li.home a::before,
+#pageBottomNav li.home button::before {
+  content: "\e88a";
+}
+
+#pageTopNav li button, #pageTopNav li a,
+#pageBottomNav li button,
+#pageBottomNav li a {
+  display: flex;
+  flex-direction: column;
+  width: 55px;
+  height: 45px;
+  padding: 0 12px 0 12px;
+  background: #fff;
+  border: 0;
+  border-radius: 0.25rem 0 0 0.25rem;
+  box-sizing: border-box;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+  vertical-align: middle;
+  color: #6981ff;
+  font-size: 25px;
+}
+
+#pageTopNav {
+  top: 10px;
+  z-index: 2000;
+}
+
+#pageBottomNav {
+  bottom: 40px;
+}
+
+/* メインエリア */
+main {
+  padding: 0 30px 150px;
+}
+
+main#INDEX {
+  padding: 0 30px 30px;
+}
+
+main a {
+  border-bottom: 1px solid #6981ff;
+}
+
+main a:hover {
+  border-bottom: 1px solid #e0e5ff;
+}
+
+main article {
+  margin-top: -80px;
+  padding-top: 100px;
+  margin-bottom: 100px;
+}
+
+main article:first-of-type {
+  padding-top: 150px;
+}
+
+main article:last-of-type {
+  margin-bottom: 0;
+}
+
+/* 見出し */
+h1, h2, h3, h4 {
+  color: #6981ff;
+  font-weight: normal;
+}
+
+h1 {
+  margin: 0;
+  padding: 50px 0 10px;
+  font-family: "Roboto Mono", monospace;
+  font-size: 140%;
+  line-height: 140%;
+}
+
+h1 a {
+  color: #6981ff;
+}
+
+h1 a:hover {
+  color: #e0e5ff;
+}
+
+h1, h2, h3, h4, h5 {
+  letter-spacing: 3px;
+}
+
+h2 {
+  margin: 0 20px 50px;
+  padding: 0 0 0 0;
+  text-align: center;
+  font-size: 130%;
+  line-height: 130%;
+}
+
+h2 span {
+  padding: 10px 20px;
+  background: #fff;
+}
+
+h2::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  margin-top: 6px;
+  left: 0;
+  background: repeating-linear-gradient(45deg, #fff 2px, #eee 2px, #eee 4px, #fff 4px, #fff 8px);
+  z-index: -1;
+}
+
+h3, h4, h5 {
+  margin: 50px 0 20px 0;
+}
+
+h3:first-child, h4:first-child, h5:first-child {
+  margin-top: 0;
+}
+
+h3 {
+  padding: 0 0 7px 7px;
+  border-bottom: 5px double #eee;
+  font-size: 130%;
+  line-height: 130%;
+}
+
+h4 {
+  font-size: 110%;
+  line-height: 110%;
+}
+
+h4 span {
+  padding: 3px 5px 1px 7px;
+  border: 3px solid #eee;
+}
+
+h5 {
+  font-size: 100%;
+  font-weight: 600;
+  line-height: 100%;
+}
+
+h5 span {
+  padding: 0 5px 1px 7px;
+  background: linear-gradient(transparent 60%, #eee 0%);
+}
+
+/* リスト */
+ul .description, ol .description {
+  margin-left: 10px;
+}
+
+ul .description::before, ol .description::before {
+  content: "…";
+  margin-right: 10px;
+}
+
+ul {
+  list-style-type: circle;
+  padding-left: 27px;
+}
+
+dl {
+  margin: 10px 0;
+}
+
+dl dd {
+  margin: 0 0 10px;
+  padding: 0 0 10px 40px;
+  border-bottom: 1px solid #eee;
+}
+
+dl dd:last-of-type {
+  border-bottom: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+dl.inline {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+dl.inline dt, dl.inline dd {
+  vertical-align: top;
+  margin: 0 0 15px;
+  padding: 0 0 15px;
+}
+
+dl.inline dt:last-of-type, dl.inline dd:last-of-type {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+dl.inline dt {
+  width: 200px;
+  padding-right: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+dl.inline dt:last-of-type {
+  border-bottom: 0;
+}
+
+dl.inline dd {
+  width: calc(100% - 200px - 20px);
+  margin-left: 0;
+}
+
+dl.border {
+  padding: 15px 20px;
+  border: 1px solid #eee;
+  border-radius: 0.25rem;
+}
+
+/* カード */
+.card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.card > * {
+  display: inline-block;
+  margin: 10px;
+  background: #fff;
+  border: 1px solid #e0e5ff;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+}
+
+.card.card-s > * {
+  width: 31.48%;
+}
+
+.card.card-s > *:first-child, .card.card-s > *:nth-child(3n + 1) {
+  margin-left: 0;
+}
+
+.card.card-s > *:nth-child(3n) {
+  margin-right: 0;
+}
+
+.card.card-m > * {
+  width: 48.61%;
+}
+
+.card.card-m > *:nth-child(odd) {
+  margin-left: 0;
+}
+
+.card.card-m > *:nth-child(even) {
+  margin-right: 0;
+}
+
+.card.card-l > * {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.card .card-title, .card .card-title-image {
+  border-bottom: 1px solid #e0e5ff;
+  box-sizing: border-box;
+}
+
+.card .card-title {
+  padding: 10px 10px 4px;
+  color: #6981ff;
+}
+
+.card .card-title-image {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+.card .card-title-image img {
+  width: 100%;
+}
+
+.card .card-title-image p {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  padding: 0;
+  transform: translate(-50%, -50%);
+}
+
+.card .card-body {
+  padding: 10px;
+}
+
+.card .card-body ul {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.card .card-body img {
+  max-width: 100%;
+}
+
+.card > a {
+  box-shadow: 0 2px #e0e5ff;
+}
+
+.card > a .card-title {
+  color: #6981ff;
+}
+
+.card > a .card-body {
+  color: #555;
+}
+
+.card > a:hover {
+  box-shadow: 0 0 #e0e5ff;
+  transform: translateY(2px);
+}
+
+.card > a:hover img {
+  opacity: 0.5;
+}
+
+.card a.card-title, .card a.card-title-image {
+  display: block;
+}
+
+.card a.card-title:hover, .card a.card-title-image:hover {
+  background: #e0e5ff;
+}
+
+.card a.card-title:hover {
+  background: #e0e5ff;
+}
+
+.card a.card-title-image:hover image {
+  opacity: 0.5;
+}
+
+/* 表示非表示 */
+.collapse .toggler-inline, .collapse .toggler-block {
+  background: #fff;
+  border: 1px solid #e0e5ff;
+  border-radius: 0.25rem;
+  color: #6981ff;
+}
+
+.collapse .toggler-inline::before, .collapse .toggler-block::before {
+  content: "\e313";
+  font-family: "Material Icons";
+  font-size: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.collapse .toggler-inline:hover, .collapse .toggler-block:hover {
+  background: #e0e5ff;
+}
+
+.collapse .toggler-inline {
+  padding: 4px 7px 2px 3px;
+}
+
+.collapse .toggler-block {
+  padding: 7px 10px 5px 5px;
+  display: block;
+  width: 100%;
+  margin: 10px 0 0;
+  text-align: left;
+}
+
+.collapse .collapse-body {
+  display: none;
+  padding: 10px;
+}
+
+/* フォーム */
+.form-inline > *, .form-block > * {
+  margin-bottom: 5px;
+}
+
+.form-block dl dt, .form-block dl dd {
+  border-bottom: 0;
+}
+
+.form-block > *, .form-block dl dd > * {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input, textarea, select, button {
+  border-radius: 0.25rem;
+  background: #fff;
+}
+
+input, textarea, select {
+  padding: 3px 5px;
+  border: 1px solid #e0e5ff;
+}
+
+input:focus, textarea:focus, select:focus {
+  background: #e0e5ff;
+}
+
+select {
+  vertical-align: bottom;
+}
+
+input[type="submit"], button {
+  padding: 3px 10px;
+  background: #e0e5ff;
+  color: #6981ff;
+}
+
+input[type="submit"]:hover, button:hover {
+  background: #6981ff;
+  color: #e0e5ff;
+}
+
+/* 装飾 */
+em {
+  color: #6981ff;
+  font-style: normal;
+  font-weight: 600;
+}
+
+strong {
+  background: linear-gradient(transparent 0%, #e0e5ff 0%);
+}
+
+hr {
+  margin: 30px auto;
+  width: 60%;
+  border: 0;
+  border-bottom: 1px solid #eee;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.copyright {
+  text-align: right;
+  font-size: 70%;
+}
+
+.required::after {
+  content: "*";
+  color: #6981ff;
+}
+
+/* スマホ設定 */
+@media only screen and (max-width: 720px) {
+  body, button, input, textarea {
+    font-size: 1.6rem;
+    line-height: calc(1.6rem + 1.05rem);
+  }
+  /* ヘッダー, フッターエリア */
+  header, footer {
+    padding: 10px 15px;
+  }
+  header nav ul li, footer nav ul li {
+    display: block;
+    margin-right: auto !important;
+  }
+  header .menu, footer .menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin-top: 0;
+    padding: calc(45px + 20px) 0 0 0;
+    background: #fff;
+  }
+  header .menu li, footer .menu li {
+    display: block;
+  }
+  header .menu li:last-of-type a, footer .menu li:last-of-type a {
+    border-bottom: 0;
+  }
+  header .menu a, footer .menu a {
+    display: block;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    padding: 15px 0;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    text-align: center;
+    font-size: 1.6rem;
+  }
+  header .menu a::after, header .menu a::before, footer .menu a::after, footer .menu a::before {
+    content: none;
+  }
+  header {
+    position: static;
+  }
+  /* 固定ナビゲーション */
+  #pageTopNav li.menu-btn {
+    display: block;
+  }
+  /* メインエリア */
+  main {
+    padding: 0 15px 250px;
+  }
+  main.no_header {
+    padding-top: 50px;
+  }
+  main article {
+    margin-top: -27px;
+    padding-top: 27px;
+  }
+  main article:first-of-type {
+    padding-top: 27px;
+  }
+  /* 見出し */
+  h1 {
+    padding: 30px 0;
+  }
+  h2 {
+    margin: 0 20px 20px;
+    padding: 0 0 0;
+  }
+  h3, h4, h5 {
+    margin: 50px 0 2px 0;
+  }
+  /* リスト */
+  ul .description, ol .description {
+    margin-left: 10px;
+  }
+  ul .description::before, ol .description::before {
+    content: "…";
+    margin-right: 10px;
+  }
+  ul {
+    list-style-type: circle;
+    padding-left: 27px;
+  }
+  dl.border dt, dl.border dd, dl.inline dt, dl.inline dd {
+    display: block;
+  }
+  dl.border dt, dl.inline dt {
+    width: 100%;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+  dl.border dd, dl.inline dd {
+    width: calc(100% - 40px);
+    padding-left: 40px;
+  }
+  /* カード */
+  .card > * {
+    margin: 5px;
+  }
+  .card.card-s > * {
+    width: 48.5%;
+  }
+  .card.card-s > *:nth-child(3n+1) {
+    margin-left: 5px;
+  }
+  .card.card-s > *:nth-child(odd) {
+    margin-left: 0;
+    margin-right: 5px;
+  }
+  .card.card-s > *:nth-child(even) {
+    margin-right: 0;
+  }
+  .card.card-m > * {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  /* 表示非表示 */
+  .collapse .toggler-block {
+    display: block;
+    width: 100%;
+    margin: 10px 0 0;
+    padding: 7px 10px 5px 5px;
+    border: 1px solid #e0e5ff;
+    border-radius: 0.25rem;
+    color: #6981ff;
+    text-align: left;
+  }
+  .collapse .collapse-body {
+    display: none;
+    padding: 10px;
+  }
+  /* フォーム */
+  .form-inline input {
+    width: 45%;
+  }
+  .form-block > *, .form-block dl dd > * {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+  }
+  /* 装飾 */
+  .copyright {
+    text-align: left;
+    font-size: 70%;
+  }
+}
+/* ----- ▲ レイアウト　ここまで ▲ ----- */
